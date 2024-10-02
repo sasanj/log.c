@@ -73,11 +73,21 @@ The function is passed the boolean `true` if the lock should be acquired or
 Returns the name of the given log level as a string.
 
 
-#### LOG_USE_COLOR
-If the library is compiled with `-DLOG_USE_COLOR` ANSI color escape codes will
-be used when printing.
+#### log_set_relative_filenames(bool relative)
+Shows filenames relative to where `log.c` is placed, effectively shortening the file paths. By default, it is on.
 
+#### log_set_use_color(bool use_color)
+Determines whether or not to use color on `stderr`. This removes the need for compiling the library with `-DLOG_USE_COLOR`. ANSI color escape codes will be used when printing. By default, it is on.
+
+#### log_set_print_time(bool print_time)
+Sometimes there is no need to display time (e.g., on `systemd`). By default, it is on.
+
+#### CMake Support
+This adds the ability to build a static library that can be used in your projects. However, the drag-and-drop feature is still supported.
 
 ## License
 This library is free software; you can redistribute it and/or modify it under
 the terms of the MIT license. See [LICENSE](LICENSE) for details.
+
+## Disclaimer
+*All of the added functionality to the original code is experimental. Please use it with care.*
